@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #FFF;
+}
+a {
+  position: relative;
+  padding: 20px 50px;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 200px;
+  overflow: hidden;
+  border-radius: 40px;
+}
+a span {
+  position: relative;
+  color: #000;
+  fot-size: 20px;
+  font-family: Arial;
+  letter-spacing: 8px;
+  z-index: 1;
+}
+a .liquid {
+  position: absolute;
+  top: -90px;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(to right, #0F47B2 , #0BF8B7);
+  box-shadow: inset 0 0 50px rgba(100, 100, 100, .5);
+  transition: .5s;
+}
+a .liquid::after,
+a .liquid::before {
+  content: '';
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  background: #000;
+}
+a .liquid::before { 
+  border-radius: 45%;
+  border: 0px;
+  background: rgb(255, 255, 255);
+  animation: animate 2.5s linear infinite;
+}
+a .liquid::after {  
+  border-radius: 40%;
+  border: 0px;
+  background: rgb(255, 255, 255);
+  animation: animate 4.5s linear infinite;
+}
+a:hover .liquid{
+  top: -120px;
+  transition-duration: 7s;
+}
+a:not(:hover) .liquid{
+	top: -60px;
+	transition-duration: 7s;
+}
+
+a:hover span{
+  	color: white;
+  	transition-duration: 7s;
+}
+a:not(:hover) span{
+	color: black;
+	transition-duration: 7s;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
